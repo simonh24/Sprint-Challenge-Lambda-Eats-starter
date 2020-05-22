@@ -1,4 +1,5 @@
 import React from "react";
+import Pizza from "./Pizza.jpg"
 
 export default function PizzaForm(props) {
     const { values, onInputChange, onSubmit, disabled, errors, onCheckboxChange } = props;
@@ -19,13 +20,14 @@ export default function PizzaForm(props) {
     return (
         <form onSubmit={onSubmit}>
             <h1>Build Your Own Pizza</h1>
-            <img src="../Assets/Pizza.jpg" alt="pizzaBanner"></img>
+            <img src={Pizza} alt="pizzaBanner"></img>
             <h2>Build Your Own Pizza</h2>
             <div className="nameDiv">
                 <div className="nameText">
                     <h3>Name</h3>
                     <p>Required</p>
                 </div>
+                <div>{errors.username}</div>
                 <input type="text" value={values.username} onChange={onInputChange} name="username"></input>
             </div>
             <div className="sizeDiv">
@@ -33,6 +35,7 @@ export default function PizzaForm(props) {
                     <h3>Choice of Size</h3>
                     <p>Required</p>
                 </div>
+                <div>{errors.size}</div>
                 <select onChange={onInputChange} value={values.size} name="size">
                     <option value="">Select</option>
                     <option value="small">Small</option>
@@ -45,6 +48,7 @@ export default function PizzaForm(props) {
                     <h3>Choice of Sauce</h3>
                     <p>Required</p>
                 </div>
+                <div>{errors.sauce}</div>
                 <input type="radio" name="sauce" value="originalRed" onChange={onInputChange}></input>
                 <span>Original Red</span>
                 <br></br>
@@ -82,8 +86,7 @@ export default function PizzaForm(props) {
                 <input type="text" value={values.specialInstructions} name="specialInstructions" onChange={onInputChange} placeholder="Anything else you'd like to add?"></input>
             </div>
             <div className="submitDiv">
-                <input type="number" name="num" onChange={onInputChange} defaultValue="1" value={values.num}></input>
-                <button disabled={disabled}></button>
+                <button disabled={disabled}>Add to Order</button>
             </div>
         </form>
     );
