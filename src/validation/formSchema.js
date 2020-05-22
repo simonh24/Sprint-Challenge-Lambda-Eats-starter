@@ -7,6 +7,7 @@ const formSchema = yup.object().shape({
         .required("The name is a required field."),
     size: yup.string().required("The size is a required field."),
     sauce: yup.string().required("The sauce is a required field."),
+    specialInstructions: yup.string().trim()
 })
 
 export default formSchema

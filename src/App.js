@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from "react";
 import PizzaForm from "./Form";
-import {Route} from "react-router-dom";
+import {Route, NavLink} from "react-router-dom";
 import * as yup from "yup";
 import axios from "axios";
 import formSchema from "./validation/formSchema";
@@ -85,13 +85,18 @@ const App = () => {
 
   return (
     <div>
+      
       <Route exact path = "/">
         <nav>
-          <a href="/">Home</a>
-          <a href="/pizza">Pizza</a>
+          <NavLink className="homeLink" to="/">Home</NavLink>
+          <NavLink className="pizzaLink" to="/pizza">Pizza</NavLink>
         </nav>
       </Route>
       <Route path = "/pizza">
+        <nav>
+          <NavLink className="homeLink" to="/">Home</NavLink>
+          <NavLink className="pizzaLink" to="/pizza">Pizza</NavLink>
+        </nav>
         <PizzaForm values={formValues} onInputChange={onInputChange} onSubmit={onSubmit} disabled={disabled} errors={formErrors} onCheckboxChange={onCheckboxChange} />
       </Route>
       </div>

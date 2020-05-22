@@ -58,7 +58,7 @@ export default function PizzaForm(props) {
                 <input type="radio" name="sauce" value="bbqSauce" onChange={onInputChange}></input>
                 <span>BBQ Sauce</span>
                 <br></br>
-                <input type="radio" name="sauce" value="spinachAlfredo" onChange={onInputChange}></input>
+                <input type="radio" name="sauce" value="spinachAlfredo" onChange={onCheckboxChange}></input>
                 <span>Spinach Alfredo</span>
                 <br></br>
             </div>
